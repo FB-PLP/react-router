@@ -1,6 +1,6 @@
 {
   "name": "react-router",
-  "version": "2.8.1",
+  "version": "2.8.1-compat_react15_5_0",
   "description": "A complete routing library for React",
   "files": [
     "*.md",
@@ -32,11 +32,13 @@
   ],
   "license": "MIT",
   "dependencies": {
+    "create-react-class": "^15.6.3",
     "history": "^2.1.2",
     "hoist-non-react-statics": "^1.2.0",
     "invariant": "^2.2.1",
-    "warning": "^3.0.0",
-    "loose-envify": "^1.2.0"
+    "loose-envify": "^1.2.0",
+    "prop-types": "^15.6.1",
+    "warning": "^3.0.0"
   },
   "peerDependencies": {
     "react": "^0.14.0 || ^15.0.0"

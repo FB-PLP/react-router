@@ -1,9 +1,11 @@
+import createReactClass from 'create-react-class'
+import PropTypes from 'prop-types'
 import React from 'react'
 import warning from './routerWarning'
 import invariant from 'invariant'
 import { routerShape } from './PropTypes'
 
-const { bool, object, string, func, oneOfType } = React.PropTypes
+const { bool, object, string, func, oneOfType } = PropTypes
 
 function isLeftClickEvent(event) {
   return event.button === 0
@@ -48,7 +50,7 @@ function createLocationDescriptor(to, { query, hash, state }) {
  *
  *   <Link ... query={{ show: true }} state={{ the: 'state' }} />
  */
-const Link = React.createClass({
+const Link = createReactClass({
 
   contextTypes: {
     router: routerShape
@@ -116,19 +118,24 @@ const Link = React.createClass({
       if (to == null) { return <a {...props} /> }
 
       const location = createLocationDescriptor(to, { query, hash, state })
+      // eslint-disable-next-line react/prop-types
       props.href = router.createHref(location)
 
       if (activeClassName || (activeStyle != null && !isEmptyObject(activeStyle))) {
         if (router.isActive(location, onlyActiveOnIndex)) {
           if (activeClassName) {
+            // eslint-disable-next-line react/prop-types
             if (props.className) {
+              // eslint-disable-next-line react/prop-types
               props.className += ` ${activeClassName}`
             } else {
+              // eslint-disable-next-line react/prop-types
               props.className = activeClassName
             }
           }
 
           if (activeStyle)
+            // eslint-disable-next-line react/prop-types
             props.style = { ...props.style, ...activeStyle }
         }
       }

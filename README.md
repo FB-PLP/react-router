@@ -62,11 +62,11 @@ import React from 'react'
 import { render } from 'react-dom'
 import { Router, Route, Link, browserHistory } from 'react-router'
 
-const App = React.createClass({/*...*/})
-const About = React.createClass({/*...*/})
-const NoMatch = React.createClass({/*...*/})
+const App = createReactClass({/*...*/})
+const About = createReactClass({/*...*/})
+const NoMatch = createReactClass({/*...*/})
 
-const Users = React.createClass({
+const Users = createReactClass({
   render() {
     return (
       <div>
@@ -87,7 +87,7 @@ const Users = React.createClass({
   }
 })
 
-const User = React.createClass({
+const User = createReactClass({
   componentDidMount() {
     this.setState({
       // route components are rendered with useful information, like URL params
@@ -147,3 +147,9 @@ Also, thanks to [BrowserStack](https://www.browserstack.com/) for providing the 
 
 [discord-badge]: https://img.shields.io/badge/Discord-join%20chat%20%E2%86%92-738bd7.svg?style=flat-square
 [discord]: https://discord.gg/0ZcbPKXt5bYaNQ46
+
+### Compatibility Updates
+
+This repo has been forked and the following changes have been made;
+
+- Compatibility changes for React 15.5.4; PropTypes and createClass references updated.

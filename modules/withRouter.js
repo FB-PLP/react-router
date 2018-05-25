@@ -1,3 +1,4 @@
+import createReactClass from 'create-react-class'
 import invariant from 'invariant'
 import React from 'react'
 import hoistStatics from 'hoist-non-react-statics'
@@ -10,7 +11,7 @@ function getDisplayName(WrappedComponent) {
 export default function withRouter(WrappedComponent, options) {
   const withRef = options && options.withRef
 
-  const WithRouter = React.createClass({
+  const WithRouter = createReactClass({
     contextTypes: { router: routerShape },
     propTypes: { router: routerShape },
 
@@ -29,6 +30,7 @@ export default function withRouter(WrappedComponent, options) {
       const props = { ...this.props, router }
 
       if (withRef) {
+        // eslint-disable-next-line react/prop-types
         props.ref = (c) => { this.wrappedInstance = c }
       }
 

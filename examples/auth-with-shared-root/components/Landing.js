@@ -1,6 +1,7 @@
+import createReactClass from 'create-react-class'
 import React from 'react'
 
-const Landing = React.createClass({
+const Landing = createReactClass({
 
   render() {
     return (
