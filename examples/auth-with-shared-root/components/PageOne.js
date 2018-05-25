@@ -1,6 +1,7 @@
+import createReactClass from 'create-react-class'
 import React from 'react'
 
-const PageOne = React.createClass({
+const PageOne = createReactClass({
   render() {
     return <h2>Page One!</h2>
   }

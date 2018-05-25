@@ -1,6 +1,7 @@
+import createReactClass from 'create-react-class'
 import React from 'react'
 
-const User = React.createClass({
+const User = createReactClass({
   render() {
     return <h1>User: {this.props.params.id}</h1>
   }

@@ -1,8 +1,9 @@
+import createReactClass from 'create-react-class'
 import React from 'react'
 import { withRouter } from 'react-router'
 import auth from '../utils/auth.js'
 
-const Login = React.createClass({
+const Login = createReactClass({
   getInitialState() {
     return {
       error: false

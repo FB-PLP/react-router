@@ -1,6 +1,7 @@
+import createReactClass from 'create-react-class'
 import React from 'react'
 
-const PageTwo = React.createClass({
+const PageTwo = createReactClass({
   render() {
     return <h2>Page Two! Wooo!</h2>
   }
