@@ -79,7 +79,7 @@ var Router = createReactClass({
       throw error; // This error probably occurred in getChildRoutes or getComponents.
     }
   },
-  componentWillMount: function componentWillMount() {
+  UNSAFE_componentWillMount: function UNSAFE_componentWillMount() {
     var _this = this;
 
     var _props = this.props,
@@ -151,7 +151,7 @@ var Router = createReactClass({
 
 
   /* istanbul ignore next: sanity check */
-  componentWillReceiveProps: function componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps: function UNSAFE_componentWillReceiveProps(nextProps) {
     process.env.NODE_ENV !== 'production' ? warning(nextProps.history === this.props.history, 'You cannot change <Router history>; it will be ignored') : void 0;
 
     process.env.NODE_ENV !== 'production' ? warning((nextProps.routes || nextProps.children) === (this.props.routes || this.props.children), 'You cannot change <Router routes>; it will be ignored') : void 0;

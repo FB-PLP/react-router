@@ -39,12 +39,12 @@ Then with a module bundler like [webpack](https://webpack.github.io/) that suppo
 
 ```js
 // using an ES6 transpiler, like babel
-import { Router, Route, Link } from 'react-router'
+import { Router, Route, Link } from "react-router";
 
 // not using an ES6 transpiler
-var Router = require('react-router').Router
-var Route = require('react-router').Route
-var Link = require('react-router').Link
+var Router = require("react-router").Router;
+var Route = require("react-router").Route;
+var Link = require("react-router").Link;
 ```
 
 The UMD build is also available on [unpkg](https://unpkg.com):
@@ -58,13 +58,19 @@ You can find the library on `window.ReactRouter`.
 ### What's it look like?
 
 ```js
-import React from 'react'
-import { render } from 'react-dom'
-import { Router, Route, Link, browserHistory } from 'react-router'
+import React from "react";
+import { render } from "react-dom";
+import { Router, Route, Link, browserHistory } from "react-router";
 
-const App = createReactClass({/*...*/})
-const About = createReactClass({/*...*/})
-const NoMatch = createReactClass({/*...*/})
+const App = createReactClass({
+  /*...*/
+});
+const About = createReactClass({
+  /*...*/
+});
+const NoMatch = createReactClass({
+  /*...*/
+});
 
 const Users = createReactClass({
   render() {
@@ -75,24 +81,24 @@ const Users = createReactClass({
           <ul>
             {/* use Link to route around the app */}
             {this.state.users.map(user => (
-              <li key={user.id}><Link to={`/user/${user.id}`}>{user.name}</Link></li>
+              <li key={user.id}>
+                <Link to={`/user/${user.id}`}>{user.name}</Link>
+              </li>
             ))}
           </ul>
         </div>
-        <div className="detail">
-          {this.props.children}
-        </div>
+        <div className="detail">{this.props.children}</div>
       </div>
-    )
+    );
   }
-})
+});
 
 const User = createReactClass({
   componentDidMount() {
     this.setState({
       // route components are rendered with useful information, like URL params
       user: findUserById(this.props.params.userId)
-    })
+    });
   },
 
   render() {
@@ -101,24 +107,25 @@ const User = createReactClass({
         <h2>{this.state.user.name}</h2>
         {/* etc. */}
       </div>
-    )
+    );
   }
-})
+});
 
 // Declarative route configuration (could also load this config lazily
 // instead, all you really need is a single root route, you don't need to
 // colocate the entire config).
-render((
+render(
   <Router history={browserHistory}>
     <Route path="/" component={App}>
-      <Route path="about" component={About}/>
+      <Route path="about" component={About} />
       <Route path="users" component={Users}>
-        <Route path="/user/:userId" component={User}/>
+        <Route path="/user/:userId" component={User} />
       </Route>
-      <Route path="*" component={NoMatch}/>
+      <Route path="*" component={NoMatch} />
     </Route>
-  </Router>
-), document.getElementById('root'))
+  </Router>,
+  document.getElementById("root")
+);
 ```
 
 See more in the [Introduction](/docs/Introduction.md), [Guides](/docs/guides/README.md), and [Examples](/examples).
@@ -138,13 +145,10 @@ Also, thanks to [BrowserStack](https://www.browserstack.com/) for providing the 
 
 [build-badge]: https://img.shields.io/travis/reactjs/react-router/master.svg?style=flat-square
 [build]: https://travis-ci.org/reactjs/react-router
-
 [npm-badge]: https://img.shields.io/npm/v/react-router.svg?style=flat-square
 [npm]: https://www.npmjs.org/package/react-router
-
 [codecov-badge]: https://img.shields.io/codecov/c/github/reactjs/react-router/master.svg?style=flat-square
 [codecov]: https://codecov.io/gh/reactjs/react-router
-
 [discord-badge]: https://img.shields.io/badge/Discord-join%20chat%20%E2%86%92-738bd7.svg?style=flat-square
 [discord]: https://discord.gg/0ZcbPKXt5bYaNQ46
 
@@ -153,3 +157,4 @@ Also, thanks to [BrowserStack](https://www.browserstack.com/) for providing the 
 This repo has been forked and the following changes have been made;
 
 - Compatibility changes for React 15.5.4; PropTypes and createClass references updated.
+- Compatibility changes for React 16.11.0; Added `UNSAFE_` tag for outdated lifecycles

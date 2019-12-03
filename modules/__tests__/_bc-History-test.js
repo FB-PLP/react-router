@@ -29,7 +29,7 @@ describe('v1 History Mixin', function () {
 
     const Component = createReactClass({
       mixins: [ History ],
-      componentWillMount() {
+      UNSAFE_componentWillMount() {
         expect(this.history).toExist()
       },
       render() { return null }
